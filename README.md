@@ -32,7 +32,7 @@ $ bundle exec rails s
 
 ## エラー内容 2020年4月11日記載
 ### 現象
-「Dockerfile」と「docker-compose.yml」を作成し、ビルド後、起動するとWEBサーバが起動しない。
+「Dockerfile」と「docker-compose.yml」を作成し、ビルド後、起動するとappコンテナが起動しない。
 
 ### エラー内容
 ビルド時(正常)
