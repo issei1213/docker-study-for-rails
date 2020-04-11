@@ -2,7 +2,7 @@
 FROM  ruby:2.6.1-alpine
 LABEL maintainer="Yuta_Ushijima<register@yuta-u.com>"
 # 文字コードの設定
-ENV LANG=C.UTF-8 \
+ENV LANG="C.UTF-8" \
     LC_ALL=C.UTF-8 \
     LC_CTYPE="utf-8"
 # 環境変数
@@ -11,8 +11,8 @@ ENV APP="/docker_example_for_rails" \
     NOKOGIRI_OPTION="--use-system-libraries \
                     --with-xml2-config=/usr/bin/xml2-config \
                     --with-xslt-config=/usr/bin/xslt-config" \
-    MYSQL_PORT=4306 \
-    SERVER_PORT=4000
+    MYSQL_PORT="4306" \
+    SERVER_PORT="4000"
 # ライブラリのインストール(追加したい場合は以下に追記)
 RUN apk update \
   && apk upgrade --no-cache \

@@ -1,6 +1,5 @@
 # 開発環境用のdocker-compose
 version: '3.2'
-
 services:
   database:
     restart: always
@@ -11,27 +10,25 @@ services:
       - mysql-datavolume:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
-
   app:
     build:
       context: .
       dockerfile: ./docker/development/Dockerfile
     command: >
       bash -c "
+        yarn install --check-files &&
         rm -f tmp/pids/server.pid &&
         bundle install --quiet &&
         bundle exec rails db:migrate:reset &&
         bundle exec rails s -p 4000 -b '0.0.0.0'
       "
     ports:
-      - "４000:4000"
+      - "4000:4000"
     volumes:
-      - .:/docker_example_for_rails
+      - .:/docker_study_for_rails
       - "bundle:/usr/local/bundle"
     depends_on:
       - database
-
-
 volumes:
   bundle:
     driver: local
