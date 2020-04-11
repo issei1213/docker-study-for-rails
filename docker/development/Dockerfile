@@ -15,32 +15,32 @@ ENV APP="/docker_example_for_rails" \
     SERVER_PORT="4000"
 # ライブラリのインストール(追加したい場合は以下に追記)
 RUN apk update \
-  && apk upgrade --no-cache \
-  && apk add --update --no-cache \
-      alpine-sdk \
-      build-base \
-      bash \
-      imagemagick \
-      jq \
-      less \
-      libgcrypt-dev \
-      libxml2-dev \
-            libxslt-dev \
-      mariadb-dev \
-      mysql-client \
-      nodejs \
-      redis \
-      tzdata \
-      wget \
+    && apk upgrade --no-cache \
+    && apk add --update --no-cache \
+        alpine-sdk \
+        build-base \
+        bash \
+        imagemagick \
+        jq \
+        less \
+        libgcrypt-dev \
+        libxml2-dev \
+                libxslt-dev \
+        mariadb-dev \
+        mysql-client \
+        nodejs \
+        redis \
+        tzdata \
+        wget \
             xvfb \
-      yaml-dev \
+        yaml-dev \
             yarn \
             zlib-dev \
-  && gem install -q -N bundler \
-  && gem install -q -N pkg-config \
-  && gem install -q -N rails -v 5.2.2.1 \
-  && gem install -q -N nokogiri -v 1.10.1 -- $NOKOGIRI_OPTION \
-  && gem install -q -N mysql2 -v 0.4.10
+    && gem install -q -N bundler \
+    && gem install -q -N pkg-config \
+    && gem install -q -N rails -v 5.2.2.1 \
+    && gem install -q -N nokogiri -v 1.10.1 -- $NOKOGIRI_OPTION \
+    && gem install -q -N mysql2 -v 0.4.10
 # 実行するディレクトリの指定
 WORKDIR $APP
 COPY Gemfile Gemfile.lock $CONTAINER_ROOT
