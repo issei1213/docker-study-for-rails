@@ -28,6 +28,8 @@ services:
       - "bundle:/usr/local/bundle"
     depends_on:
       - database
+    tty: true
+    stdin_open: true
 volumes:
   bundle:
     driver: local
